@@ -1,0 +1,65 @@
+/* ==========================================================================
+   Tipografia
+   ========================================================================== */
+
+   body {
+      -webkit-text-size-adjust: none;
+      -ms-text-size-adjust:none;
+   }
+
+   @font-face {
+      font-family: 'Marcellus SC';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Marcellus SC'), local('MarcellusSC-Regular'), url(http://themes.googleusercontent.com/static/fonts/marcellussc/v1/_jugwxhkkynrvsfrxVx8gXhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+   }
+
+   /* Titulos
+      ========================================================================== */
+      h1 {
+         text-align: center;
+         color: #fff;
+         margin: 0 auto 20px;
+         font-family: 'Marcellus SC';
+         font-size: 48px;
+      }
+
+      h1 > span {
+         font-size: 64px;
+         color: #01f0ff;
+      }
+
+      h2 {
+         display: block;
+         color: #444;
+         border-left: solid 5px #ccc;
+         padding-left: 15px;
+      }
+
+   /* Textos
+      ========================================================================== */
+
+      p {
+         color: #666666;
+         font-size: 14px;
+         line-height: 20px;
+         margin: 0 0 15px;
+         text-align: left;
+      }
+
+   /* Listas
+      ========================================================================== */
+      ul,
+      dl {
+         color: #666;
+         font-size: 14px;
+      }
+
+   /* Links
+      ========================================================================== */
+      a { 
+         color: #01F0FF;
+         text-decoration: none;
+      }
+
+      a:hover { text-decoration: underline; }

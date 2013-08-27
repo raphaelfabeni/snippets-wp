@@ -1,0 +1,138 @@
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+   /* Geral
+      ========================================================================== */
+      body {
+         background-size: 40px 40px;
+         background-color: #004059;
+         background-image:
+            -webkit-linear-gradient(45deg, rgba(255, 255, 255, .1) 25%, transparent 25%,
+            transparent 50%, rgba(255, 255, 255, .1) 50%, rgba(255, 255, 255, .1) 75%,
+            transparent 75%, transparent);
+         background-image:
+            -moz-linear-gradient(45deg, rgba(255, 255, 255, .1) 25%, transparent 25%,
+            transparent 50%, rgba(255, 255, 255, .1) 50%, rgba(255, 255, 255, .1) 75%,
+            transparent 75%, transparent);
+         background-image: 
+            linear-gradient(45deg, rgba(255, 255, 255, .1) 25%, transparent 25%,
+            transparent 50%, rgba(255, 255, 255, .1) 50%, rgba(255, 255, 255, .1) 75%,
+            transparent 75%, transparent);
+      }
+
+      .container {
+         width: 90%;
+         margin: 150px auto 0;
+         padding: 10px 2%;
+         background-color: #fff;
+         @include border-radius(10px 10px 0 0);
+      }
+
+   /* Header
+      ========================================================================== */
+      .header { 
+         height: 140px;
+         position: fixed;
+         left: 0;
+         top: 0;
+         width: 100%;
+         padding-left: 7%;
+         padding-right: 7%;
+      }
+
+      .header,
+      .header h1,
+      .header input { @include transition(all .25s ease); }
+
+      .input-search {
+         margin: 0 auto;
+         width: 220px;
+         display: block;
+         padding: 5px 8px;
+         font-size: 12px;
+         color: #666;
+      }
+
+      .header.fixed {         
+         background-color: #012533;
+         height: 60px;
+      }
+
+      .header.fixed h1 {
+         float: left;
+         font-size: 32px;
+         margin: 0;
+      }
+
+      .header.fixed h1 span { font-size: 44px; }
+
+      .header.fixed input {
+         float: right;
+         margin-top: 15px;
+      }
+
+   /* Busca
+      ========================================================================== */
+      /*
+       * Placeholder (com prefixos)
+       */
+      input::-webkit-input-placeholder {
+         font-style: italic;
+         font-size: 12px;
+         color: #eee;
+      }
+      
+      input:-moz-placeholder {
+         font-style: italic;
+         font-size: 12px;
+         color: #666;
+      }
+
+      input::-moz-placeholder {
+         font-style: italic;
+         font-size: 12px;
+         color: #666;
+      }
+
+      input:-ms-input-placeholder {
+         font-style: italic;
+         font-size: 12px;
+         color: #eee;
+      }
+
+      input:-moz-placeholder {
+         font-style: italic;
+         font-size: 12px;
+         color: #eee;
+      }
+
+      .autocomplete-suggestion {
+         background-color: #eee;
+         color: #666;
+         padding: 5px 10px;
+         width: 101%;
+         @include transition(all .25s ease);
+         cursor: pointer;
+         font-size: 14px;
+      }
+
+      .autocomplete-suggestion:hover,
+      .autocomplete-suggestion.autocomplete-selected {
+         color: #fff;
+         background-color: #1a536a;
+      }
+
+   /* Footer
+      ========================================================================== */
+      .footer {
+         display: block;
+         padding: 15px 0;
+         width: 100%;
+         background-color: #012533;
+      }
+
+      .author {
+         display: inline-block;
+         margin: 0 10px;
+      }

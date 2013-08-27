@@ -1,0 +1,208 @@
+<!doctype html>
+<!--[if IE 7]>    <html class="no-js ie7" lang="pt-br">     <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="pt-br">     <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="pt-br">     <![endif]-->
+<head>
+   <meta charset="utf-8">
+   <title>Wp samples</title>
+   <!-- Meta -->
+   <meta name="keywords" content="wp, wordpress, shortcode, snippets, code, web, example" >
+   <meta name="author" content="Raphael Fabeni">
+   <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+   <meta name="description" content="Exemplos de snippets de código para WordPress.">
+
+   <link rel="icon" href="http://www.raphaelfabeni.com.br/favicon.ico">
+   
+   <!-- CSS -->
+   <link rel="stylesheet" href="css/main.css">
+
+   <!-- Modernizr -->
+   <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+   <!-- Google prettify -->
+   <script src="js/google-code-prettify/prettify.js"></script>
+</head>
+<body>
+
+<header class="header">
+   <h1><span>WP</span> Samples</h1>
+   <input type="text" name="titles" id="autocomplete" class="input-search" placeholder="Perdido? Busque aqui...">
+</header>
+
+<div class="container">
+<!-- jQuery -->
+<h2>jQuery</h2>
+<p>Adiciona apenas um script jQuery no rodapé. É necessária a tag <code>&lt;?php wp_footer(); ?&gt;</code> no rodapé;</p>
+
+<pre class="prettyprint linenums lang-php">
+// Adictionar script jQuery
+function my_scripts_method() {
+   wp_deregister_script( 'jquery' );
+   wp_enqueue_script('jquery','<b>http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js</b>','','',true);
+}    
+
+add_action('wp_enqueue_scripts', 'my_scripts_method');
+</pre>
+
+<!-- Contact Form 7 -->
+<h2>Personalizando o Contact Form 7</h2>
+<p>Adiciona uma classe aos formulários para você poder estilizar o CSS.</p>
+
+<pre class="prettyprint linenums lang-php">
+// Adiciona classe aos formularios
+add_filter( 'wpcf7_form_class_attr', 'your_custom_form_class_attr' );
+
+function your_custom_form_class_attr( $class ) {
+    $class .= ' <b>nova_classe</b>';
+    return $class;
+}
+</pre>
+
+   <p>Adiciona scripts e folha de estilo apenas na página que for necessária.</p>
+
+<pre class="prettyprint linenums lang-php">
+// Scripts e folha de estilo apenas na pagina necessaria
+add_action( 'wp_print_scripts', 'deregister_cf7_javascript', <b>id_da_pagina</b> );
+function deregister_cf7_javascript() {
+    if ( !is_page(<b>id_da_pagina</b>) ) {
+        wp_deregister_script( 'contact-form-7' );
+    }
+}
+
+add_action( 'wp_print_styles', 'deregister_cf7_styles', <b>id_da_pagina</b> );
+function deregister_cf7_styles() {
+    if ( !is_page(<b>id_da_pagina</b>) ) {
+        wp_deregister_style( 'contact-form-7' );
+    }
+}
+</pre>
+
+<!-- Post type -->
+<h2>Post types</h2>
+<p>Criando post types.</p>
+
+<pre class="prettyprint linenums lang-php">
+add_action( 'init', 'create_post_type' );
+
+function create_post_type() {
+   register_post_type( '<b>nome_post_type</b>',
+      array(
+         'labels' => array(
+            'name' => __( '<b>Nome do Post Type</b>' ),
+            'singular_name' => __( '<b>Nome do Post Type</b>' ),
+            'add_new'       => 'Adicionar novo post',
+            'add_new_item'  => 'Adicionar novo post',
+            'edit'          => 'Editar post',
+            'edit_item'     => 'Editar post',
+            'new_item'      => 'Novo post',
+            'view'          => 'Ver post',
+            'view_item'     => 'Ver post',
+            'search_items'  => __('Pesquisar'),
+            'not_found'     => 'Nenhum post encontrado',
+            'not_found_in_trash'        => 'Nenhum post encontrado na lixeira',
+            'parent'        => 'Post Principal',
+         ),          
+         'public'        => true,
+         'has_archive'   => true,
+         'menu_position' => 100,
+         'supports'      => array('title','editor','author','category','post_tag','thumbnail','excerpt','comments','custom-fields'),
+         'menu_icon'     => get_stylesheet_directory_uri() . '<b>url_da_imagem.png</b>',
+         'rewrite'       => array('slug' => '<b>nome_post_type</b>')
+      )
+   );    
+   
+   register_taxonomy( '<b>taxonomia_post_type</b>', '<b>nome_post_type</b>', 
+      array('hierarchical' => true,             
+         'label' => __('Categorias'),
+         'rewrite' => array("slug" => "<b>taxonomia_post_type</b>"),
+         'query_var' => true                                                             
+      ) 
+   );
+}
+</pre>
+
+<p>Criando coluna de categorias na página de post type e filtrando por categoria.</p>
+
+<pre class="prettyprint linenums lang-php">
+// Coluna categoria post type
+function add_new_columns($defaults) {
+   $defaults['<b>categorias_post_type</b>'] = __('Categoria');
+   return $defaults;
+}
+
+function add_column_data( $column_name, $post_id ) {
+   if( $column_name == '<b>categorias_post_type</b>' ) {
+      $_posttype  = '<b>nome_post_type</b>';
+      $_taxonomy  = '<b>taxonomia_post_type</b>';
+      $terms      = get_the_terms( $post_id, $_taxonomy );
+      if ( !empty( $terms ) ) {
+         $out = array();
+         foreach ( $terms as $c )
+            $_taxonomy_title = esc_html(sanitize_term_field('name', $c->name, $c->term_id, '<b>taxonomia_post_type</b>', 'display'));
+            $_taxonomy_slug = esc_html(sanitize_term_field('name', $c->slug, $c->term_id, '<b>taxonomia_post_type</b>', 'display'));                
+             $out[] = "&lt;a href='edit.php?<b>taxonomia_post_type</b>=$_taxonomy_slug&post_type=$_posttype'&gt;$_taxonomy_title&lt;/a&gt;";
+             echo join( ', ', $out );
+      } else {
+       _e('Nenhuma Categoria');
+      }
+   }
+}
+
+add_filter( 'manage_<b>nome_post_type</b>_posts_columns', 'add_new_columns');
+add_action( 'manage_posts_custom_column', 'add_column_data', 10, 2 );
+
+
+// Filtro categoria post type
+add_action('restrict_manage_posts','restrict_listings_by_business');
+function restrict_listings_by_business() {
+    global $typenow;
+    global $wp_query;
+    if ($typenow=='<b>nome_post_type</b>') {
+    $taxonomy = '<b>taxonomia_post_type</b>';
+    $term = isset($wp_query->query['<b>taxonomia_post_type</b>']) ? $wp_query->query['<b>taxonomia_post_type</b>'] :'';
+    $<b>taxonomia_post_type</b>_taxonomy = get_taxonomy($taxonomy);
+        wp_dropdown_categories(array(
+            'show_option_all' =>  __("Ver todas as categorias"),
+            'taxonomy'        =>  $taxonomy,
+            'name'            =>  '<b>taxonomia_post_type</b>',
+            'orderby'         =>  'name',
+            'selected'        =>  $term,
+            'hierarchical'    =>  true,
+            'depth'           =>  3,
+            'show_count'      =>  true,
+            'hide_empty'      =>  true,
+        ));
+    }
+}
+add_filter('parse_query','convert_<b>taxonomia_post_type</b>_id_to_taxonomy_term_in_query');
+function convert_<b>taxonomia_post_type</b>_id_to_taxonomy_term_in_query($query) {
+    global $pagenow;
+    $qv = &$query->query_vars;
+    if ($pagenow=='edit.php' && isset($qv['<b>taxonomia_post_type</b>']) && is_numeric($qv['<b>taxonomia_post_type</b>'])) {
+        $term = get_term_by('id',$qv['<b>taxonomia_post_type</b>'],'<b>taxonomia_post_type</b>');
+        $qv['<b>taxonomia_post_type</b>'] = ($term ? $term->slug : '');
+    }
+}
+</pre>
+
+
+<!-- -->
+</div>
+<footer class="footer">
+   <div class="row text-center">
+      <div class="author">            
+         <a class="hover" href="https://twitter.com/raphaelfabeni">
+            <img src="https://si0.twimg.com/profile_images/2634267344/6d42a3803563ea4fa4307878c3b2c886_bigger.jpeg" alt="Raphael Fabeni" class="avatar size73">
+         </a>
+         <a href="https://twitter.com/raphaelfabeni" class="block">@raphaelfabeni</a>
+      </div>
+   </div>
+</footer>
+   
+   <!-- Scripts -->
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.9.0.min.js"><\/script>')</script>
+   
+   <script src="js/autocomplete/jquery.autocomplete.js"></script>
+   <script src="js/scripts.js"></script>
+</body>
+</html>
