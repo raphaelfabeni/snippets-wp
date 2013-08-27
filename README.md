@@ -1,4 +1,4 @@
-wp-samples
+WP Samples
 ==========
 
-Coletânea de snippets para uso em projetos WordPress
+Coletânea de snippets para uso em projetos WordPress.
