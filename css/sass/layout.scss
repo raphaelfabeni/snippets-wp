@@ -41,9 +41,12 @@
          padding-right: 7%;
       }
 
-      .header,
+      .header {
+         @include transition(background-color 0.75s ease);
+      }
+
       .header h1,
-      .header input { @include transition(all 0.5s ease); }
+      .header input { @include transition(all 0.55s ease-out); }
 
       .header.fixed {         
          background-color: #012533;
