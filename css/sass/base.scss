@@ -48,7 +48,12 @@
       -webkit-box-shadow: $parameters;
               box-shadow: $parameters;
    }
-   
+
+   @mixin multiple-box-shadow($parameter1, $parameter2) { 
+      -webkit-box-shadow: $parameter1, $parameter2;
+              box-shadow: $parameter1, $parameter2;
+   }
+  
    /* Clearfix */
    @mixin clearfix() {
       .ie7 & { zoom:1 }

@@ -17,7 +17,7 @@
    <meta property="og:site_name" content="WP samples">
    <meta property="og:url" content="http://raphaelfabeni.github.io/wp-samples/">
    <meta property="og:image" content="http://raphaelfabeni.github.io/wp-samples/fb-share.png">
-   <meta property="og:description" content="Exemplos de snippets para utilização em projetos que utilizam WordPress.">
+   <meta property="og:description" content="Uma coletânea de snippets para projetos que utilizam WordPress.">
 
    <link rel="icon" href="http://www.raphaelfabeni.com.br/favicon.ico">
    
@@ -30,16 +30,28 @@
    <script src="js/google-code-prettify/prettify.js"></script>
 </head>
 <body>
-
+<!-- Selo Github -->
+<a class="label-github" href="https://github.com/raphaelfabeni/wp-samples/tree/gh-pages">
+   <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
+</a>
+<!-- Header -->
 <header class="header">
    <h1><span>WP</span> samples</h1>
-   <input type="text" name="titles" id="autocomplete" class="input-search" placeholder="Perdido? Busque aqui...">
+   <div class="box-social">
+      <iframe class="social github-star" src="http://ghbtns.com/github-btn.html?user=raphaelfabeni&repo=wp-samples&type=watch" height="22" width="60" frameborder="0" scrolling="0" style="width:60px; height: 22px;" allowTransparency="true"></iframe>
+      <iframe class="social github-fork" src="http://ghbtns.com/github-btn.html?user=raphaelfabeni&repo=wp-samples&type=fork" height="22" width="60" frameborder="0" scrolling="0" style="width:60px; height: 22px;" allowTransparency="true"></iframe>      
+      <a class="btn btn-twitter " href="http://twitter.com/share?url=http://raphaelfabeni.github.io/wp-samples&amp;text=WP samples | Uma coletânea de snippets para projetos que utilizam WordPress">Tweetar</a>
+
+      <a class="btn btn-facebook" href="http://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Btitle%5D=Uma%20coletânea%20de%20snippets%20para%20projetos%20que%20utilizam%20WordPress&amp;p%5Bsummary%5D=&amp;p%5Burl%5D=http://raphaelfabeni.github.io/wp-samples&amp;p%5Bimages%5D%5B0%5D=http://raphaelfabeni.github.io/wp-samples/fb-share.png" target="_blank">Compartilhar</a>
+   </div>
+   <input type="text" name="titles" id="autocomplete" class="input-search" placeholder="Perdido? Busque aqui...">   
 </header>
 
-<div class="container">
+<div class="container">   
 <!-- jQuery -->
 <h2>jQuery</h2>
-<p>Adiciona apenas um script jQuery no rodapé. É necessária a tag <code>&lt;?php wp_footer(); ?&gt;</code> no rodapé;</p>
+<p><strong>O que faz:</strong> Adiciona apenas um script jQuery no rodapé. É necessária a tag <code>&lt;?php wp_footer(); ?&gt;</code> no rodapé;</p>
+<p><strong>Onde insiro o snippet:</strong> <code>functions.php</code></p>
 
 <pre class="prettyprint linenums lang-php">
 // Adictionar script jQuery
@@ -53,7 +65,8 @@ add_action('wp_enqueue_scripts', 'my_scripts_method');
 
 <!-- Contact Form 7 -->
 <h2>Personalizando o Contact Form 7</h2>
-<p>Adiciona uma classe aos formulários para você poder estilizar o CSS.</p>
+<p><strong>O que faz:</strong> Adiciona uma classe aos formulários para você poder estilizar o CSS.</p>
+<p><strong>Onde insiro o snippet:</strong> <code>functions.php</code></p>
 
 <pre class="prettyprint linenums lang-php">
 // Adiciona classe aos formularios
@@ -65,7 +78,8 @@ function your_custom_form_class_attr( $class ) {
 }
 </pre>
 
-   <p>Adiciona scripts e folha de estilo apenas na página que for necessária.</p>
+<p><strong>O que faz: </strong> Adiciona scripts e folha de estilo apenas na página que for necessária.</p>
+<p><strong>Onde insiro o snippet:</strong> <code>functions.php</code></p>
 
 <pre class="prettyprint linenums lang-php">
 // Scripts e folha de estilo apenas na pagina necessaria
@@ -86,7 +100,8 @@ function deregister_cf7_styles() {
 
 <!-- Post type -->
 <h2>Post types</h2>
-<p>Criando post types.</p>
+<p><strong>O que faz:</strong> Cria um novo post type.</p>
+<p><strong>Onde insiro o snippet:</strong> <code>functions.php</code></p>
 
 <pre class="prettyprint linenums lang-php">
 add_action( 'init', 'create_post_type' );
@@ -128,7 +143,8 @@ function create_post_type() {
 }
 </pre>
 
-<p>Criando coluna de categorias na página de post type e filtrando por categoria.</p>
+<p><strong>O que faz:</strong> Cria coluna de categorias na página de post type e filtra por categoria.</p>
+<p><strong>Onde insiro o snippet:</strong> <code>functions.php</code></p>
 
 <pre class="prettyprint linenums lang-php">
 // Coluna categoria post type
@@ -202,12 +218,14 @@ function convert_<b>taxonomia_post_type</b>_id_to_taxonomy_term_in_query($query)
             <img src="https://si0.twimg.com/profile_images/2634267344/6d42a3803563ea4fa4307878c3b2c886_bigger.jpeg" alt="Raphael Fabeni" class="avatar size73">
          </a>
          <a href="https://twitter.com/raphaelfabeni" class="block">@raphaelfabeni</a>
+         <iframe src="http://ghbtns.com/github-btn.html?user=raphaelfabeni&type=follow" height="30" width="168" frameborder="0" scrolling="0" style="width:168px; height: 30px;" allowTransparency="true"></iframe>
       </div>
       <div class="author">            
          <a class="hover" href="https://twitter.com/hussanii">
             <img src="https://si0.twimg.com/profile_images/1388585313/avatar_sani_bigger.jpg" alt="Hussani" class="avatar size73">
          </a>
          <a href="https://twitter.com/hussanii" class="block">@hussanii</a>
+         <iframe src="http://ghbtns.com/github-btn.html?user=hussani&type=follow" height="30" width="168" frameborder="0" scrolling="0" style="width:127px; height: 30px;" allowTransparency="true"></iframe>
       </div>
    </div>
 </footer>
