@@ -208,6 +208,32 @@ function convert_<b>taxonomia_post_type</b>_id_to_taxonomy_term_in_query($query)
 }
 </pre>
 
+<!-- Image size -->
+<h2>Corte de imagens</h2>
+<p><strong>O que faz:</strong> Adiciona tamanhos específicos para os cortes de imagens.</p>
+<p><strong>Onde insiro o snippet:</strong> <code>functions.php</code></p>
+
+<pre class="prettyprint linenums lang-php">
+if ( function_exists( 'add_image_size' ) ) {
+   add_image_size('<b>nome_do_corte</b>', 780, 350, true);
+}
+</pre>
+
+<!-- Sidebar -->
+<h2>Sidebar</h2>
+<p><strong>O que faz:</strong> Cria uma nova barra lateral que fica disponível na seção <i>Aparência > Widgets</i>.</p>
+<p><strong>Onde insiro o snippet:</strong> <code>functions.php</code></p>
+
+<pre class="prettyprint linenums lang-php">
+if (function_exists('register_sidebar')) {
+   register_sidebar(array(
+     'name'            => '<b>nome_da_sidebar</b>',
+     'before_widget'    => '&lt;div class="<b>elemento_que_vai_envolver_a_sidebar</b>"&gt;',
+     'after_widget'    => '&lt;/div&gt;'
+   ));
+
+}
+</pre>
 
 <!-- -->
 </div>
