@@ -231,7 +231,60 @@ if (function_exists('register_sidebar')) {
      'before_widget'    => '&lt;div class="<b>elemento_que_vai_envolver_a_sidebar</b>"&gt;',
      'after_widget'    => '&lt;/div&gt;'
    ));
+}
+</pre>
 
+<!-- Admin -->
+<h2>Logo Admin</h2>
+<p><strong>O que faz:</strong> Altera a imagem e link do logo na tela de acesso ao painel do WordPress.</p>
+<p><strong>Onde insiro o snippet:</strong> <code>functions.php</code></p>
+
+<pre class="prettyprint linenums lang-php">
+// Altera imagem do logotipo
+function my_login_logo() { ?&gt;
+   body.login div#login h1 a {
+        background-image: url(<b>/img/site-login-logo.png</b>);
+        padding-bottom: 30px; /* Ajuste conforme necessário */
+   }
+&lt;?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+// Altera link do logo na página de acesso ao Painel de Controle
+function my_login_logo_url() {
+    return get_bloginfo( 'url' );
+}
+add_filter( 'login_headerurl', 'my_login_logo_url' );
+ 
+function my_login_logo_url_title() {
+    return '<b>Nome do site</b>';
+}
+add_filter( 'login_headertitle', 'my_login_logo_url_title' );
+</pre>
+
+<!-- Texto rodapé -->
+<h2>Texto do rodapé no Painel de Controle</h2>
+<p><strong>O que faz:</strong> Altera o texto padrão que é exibido no rodapé no Painel de Controle do WordPress.</p>
+<p><strong>Onde insiro o snippet:</strong> <code>functions.php</code></p>
+
+<pre class="prettyprint linenums lang-php">
+// Altera texto do rodapé no Painel de Controle do WP
+function remove_footer_admin () {
+  echo '<b>Novo texto</b>';
+}
+add_filter('admin_footer_text', 'remove_footer_admin');
+</pre>
+
+<!-- Ícone Dashboard -->
+<h2>Ícone Dashboard</h2>
+<p><strong>O que faz:</strong> Altera o ícone padrão do WordPress no Painel de Controle por um customizado.</p>
+<p><strong>Onde insiro o snippet:</strong> <code>functions.php</code></p>
+
+<pre class="prettyprint linenums lang-php">
+// Altera ícone no Painel de Controle
+add_action('admin_head', 'my_custom_logo');
+function my_custom_logo() {
+  echo '
+    #wp-admin-bar-wp-logo .ab-icon {background: url('.get_bloginfo('template_directory').'<b>/img/admin_logo.png</b>) no-repeat center top !important; }';
 }
 </pre>
 
