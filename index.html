@@ -20,10 +20,8 @@
    <meta property="og:description" content="Uma coletânea de snippets para projetos que utilizam WordPress.">
 
    <link rel="icon" href="http://www.raphaelfabeni.com.br/favicon.ico">
-   
    <!-- CSS -->
    <link rel="stylesheet" href="css/main.css">
-
    <!-- Modernizr -->
    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
    <!-- Google prettify -->
@@ -39,15 +37,15 @@
    <h1><span>WP</span> samples</h1>
    <div class="box-social">
       <iframe class="social github-star" src="http://ghbtns.com/github-btn.html?user=raphaelfabeni&repo=wp-samples&type=watch" height="22" width="60" frameborder="0" scrolling="0" style="width:60px; height: 22px;" allowTransparency="true"></iframe>
-      <iframe class="social github-fork" src="http://ghbtns.com/github-btn.html?user=raphaelfabeni&repo=wp-samples&type=fork" height="22" width="60" frameborder="0" scrolling="0" style="width:60px; height: 22px;" allowTransparency="true"></iframe>      
+      <iframe class="social github-fork" src="http://ghbtns.com/github-btn.html?user=raphaelfabeni&repo=wp-samples&type=fork" height="22" width="60" frameborder="0" scrolling="0" style="width:60px; height: 22px;" allowTransparency="true"></iframe>
       <a class="btn btn-twitter " href="http://twitter.com/share?url=http://raphaelfabeni.github.io/wp-samples&amp;text=WP samples - Uma coletânea de snippets para projetos que utilizam WordPress" target="_blank">Tweetar</a>
 
       <a class="btn btn-facebook" href="http://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Btitle%5D=Uma%20coletânea%20de%20snippets%20para%20projetos%20que%20utilizam%20WordPress&amp;p%5Bsummary%5D=&amp;p%5Burl%5D=http://raphaelfabeni.github.io/wp-samples&amp;p%5Bimages%5D%5B0%5D=http://raphaelfabeni.github.io/wp-samples/fb-share.png" target="_blank">Compartilhar</a>
    </div>
-   <input type="text" name="titles" id="autocomplete" class="input-search" placeholder="Perdido? Busque aqui...">   
+   <input type="text" name="titles" id="autocomplete" class="input-search" placeholder="Perdido? Busque aqui...">
 </header>
 
-<div class="container">   
+<div class="container">
 <!-- jQuery -->
 <h2>jQuery</h2>
 <p><strong>O que faz:</strong> Adiciona apenas um script jQuery no rodapé. É necessária a tag <code>&lt;?php wp_footer(); ?&gt;</code> no rodapé;</p>
@@ -58,7 +56,7 @@
 function my_scripts_method() {
    wp_deregister_script( 'jquery' );
    wp_enqueue_script('jquery','<b>http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js</b>','','',true);
-}    
+}
 
 add_action('wp_enqueue_scripts', 'my_scripts_method');
 </pre>
@@ -123,7 +121,7 @@ function create_post_type() {
             'not_found'     => 'Nenhum post encontrado',
             'not_found_in_trash'        => 'Nenhum post encontrado na lixeira',
             'parent'        => 'Post Principal',
-         ),          
+         ),
          'public'        => true,
          'has_archive'   => true,
          'menu_position' => 100,
@@ -131,14 +129,14 @@ function create_post_type() {
          'menu_icon'     => get_stylesheet_directory_uri() . '<b>url_da_imagem.png</b>',
          'rewrite'       => array('slug' => '<b>nome_post_type</b>')
       )
-   );    
-   
-   register_taxonomy( '<b>taxonomia_post_type</b>', '<b>nome_post_type</b>', 
-      array('hierarchical' => true,             
+   );
+
+   register_taxonomy( '<b>taxonomia_post_type</b>', '<b>nome_post_type</b>',
+      array('hierarchical' => true,
          'label' => __('Categorias'),
          'rewrite' => array("slug" => "<b>taxonomia_post_type</b>"),
-         'query_var' => true                                                             
-      ) 
+         'query_var' => true
+      )
    );
 }
 </pre>
@@ -162,7 +160,7 @@ function add_column_data( $column_name, $post_id ) {
          $out = array();
          foreach ( $terms as $c )
             $_taxonomy_title = esc_html(sanitize_term_field('name', $c->name, $c->term_id, '<b>taxonomia_post_type</b>', 'display'));
-            $_taxonomy_slug = esc_html(sanitize_term_field('name', $c->slug, $c->term_id, '<b>taxonomia_post_type</b>', 'display'));                
+            $_taxonomy_slug = esc_html(sanitize_term_field('name', $c->slug, $c->term_id, '<b>taxonomia_post_type</b>', 'display'));
              $out[] = "&lt;a href='edit.php?<b>taxonomia_post_type</b>=$_taxonomy_slug&post_type=$_posttype'&gt;$_taxonomy_title&lt;/a&gt;";
              echo join( ', ', $out );
       } else {
@@ -254,7 +252,7 @@ function my_login_logo_url() {
     return get_bloginfo( 'url' );
 }
 add_filter( 'login_headerurl', 'my_login_logo_url' );
- 
+
 function my_login_logo_url_title() {
     return '<b>Nome do site</b>';
 }
@@ -288,32 +286,92 @@ function my_custom_logo() {
 }
 </pre>
 
+<!-- Resumo -->
+<h2>Resumo - Excerpt</h2>
+<p><strong>O que faz:</strong> Define um número de palavras para o resumo.</p>
+<p><strong>Onde insiro o snippet:</strong> <code>functions.php</code></p>
+
+<pre class="prettyprint linenums lang-php">
+function excerpt($limit) {
+    $excerpt = explode(' ', get_the_excerpt(), $limit);
+    if (count($excerpt)>=$limit) {
+        array_pop($excerpt);
+        $excerpt = implode(" ",$excerpt).'...';
+    } else {
+        $excerpt = implode(" ",$excerpt);
+    }
+    $excerpt = preg_replace('`[[^]]*]`','',$excerpt);
+    return $excerpt;
+}
+</pre>
+
+<!-- Paginacao -->
+<h2>Paginação</h2>
+<p><strong>O que faz:</strong> Adiciona paginação na página.</p>
+<p><strong>Onde insiro o snippet:</strong> <code>functions.php</code></p>
+
+<pre class="prettyprint linenums lang-php">
+
+function show_pagination_links(){
+    global $wp_query;
+
+    $page_tot = $wp_query->max_num_pages;
+    $page_cur = get_query_var( 'paged' );
+    $big = 999999999;
+
+    if ( $page_tot == 1 ) return;
+
+    $args = array(
+        'base'          => str_replace( $big, '%#%', get_pagenum_link( $big ) ), // need an unlikely integer cause the url can contains a number
+        'format'        => '?paged=%#%',
+        'current'       => max( 1, $page_cur ),
+        'total'         => $page_tot,
+        'prev_next'     => true,
+        'end_size'      => 1,
+        'mid_size'      => 2,
+        'prev_text'     => __('«'),
+        'next_text'     => __('»'),
+        'type'          => 'plain'
+    );
+
+    $values = paginate_links( $args );
+
+    //echo $values;
+
+    if ( $args ) {
+       echo '<div class="elemento_que_vai_envolver_a_paginacao">';
+       echo $values;
+       echo '</div><!--// end .pagination -->';
+    }
+}
+</pre>
+
 <!-- -->
 </div>
 <footer class="footer">
    <div class="row text-center">
-      <div class="author">            
-         <a class="hover" href="https://twitter.com/raphaelfabeni">
-            <img src="https://si0.twimg.com/profile_images/2634267344/6d42a3803563ea4fa4307878c3b2c886_bigger.jpeg" alt="Raphael Fabeni" class="avatar size73">
+      <div class="author">
+        <a class="hover" href="https://twitter.com/hussanii">
+            <img src="https://pbs.twimg.com/profile_images/378800000770767850/51cc300bb91b15dfebc1013b3b1b9d42_bigger.jpeg" alt="Raphael Fabeni">
          </a>
          <a href="https://twitter.com/raphaelfabeni" class="block">@raphaelfabeni</a>
          <iframe src="http://ghbtns.com/github-btn.html?user=raphaelfabeni&type=follow" height="30" width="168" frameborder="0" scrolling="0" style="width:168px; height: 30px;" allowTransparency="true"></iframe>
       </div>
-      <div class="author">            
+      <div class="author">
          <a class="hover" href="https://twitter.com/hussanii">
-            <img src="https://si0.twimg.com/profile_images/1388585313/avatar_sani_bigger.jpg" alt="Hussani" class="avatar size73">
+            <img src="https://pbs.twimg.com/profile_images/1388585313/avatar_sani_bigger.jpg" alt="Hussani">
          </a>
          <a href="https://twitter.com/hussanii" class="block">@hussanii</a>
          <iframe src="http://ghbtns.com/github-btn.html?user=hussani&type=follow" height="30" width="168" frameborder="0" scrolling="0" style="width:127px; height: 30px;" allowTransparency="true"></iframe>
       </div>
    </div>
 </footer>
-   
+
    <!-- Scripts -->
    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.9.0.min.js"><\/script>')</script>
-   
-   <script src="js/autocomplete/jquery.autocomplete.js"></script>
+
+   <script src="js/autocomplete/jquery.autocomplete.min.js"></script>
    <script src="js/scripts.js"></script>
    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
