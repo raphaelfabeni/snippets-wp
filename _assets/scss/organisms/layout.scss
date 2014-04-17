@@ -1,0 +1,59 @@
+/*  ==========================================================================
+    Layout
+    ========================================================================== */
+
+    @media only screen {
+
+        /*  General
+            ========================================================================== */
+    	    body { background-color: $primary-color; }
+
+            .main { background-color: #fff; }
+
+        /*  Snippet list
+            ========================================================================== */
+            .snippet {
+                background-color: #f5f5f5;
+                padding: 20px;
+                border-top: solid 1px #fff;
+                border-bottom: solid 1px #ddd;
+                border-left: solid 5px $primary-color;
+                @include transition(border .25s ease, background-color .5s ease);
+            }
+
+            .snippet:hover { border-left-color: $secondary-color; }
+            .snippet:first-child { border-top: none; }
+            .snippet:last-child { border-bottom: none; }
+            .snippet:nth-child(odd) { background-color: #eee; }
+            .snippet-title h2 { font-weight: 700; }
+            .snippet-title h2 { margin: 0; }
+            .snippet-title h2 a { color: $primary-color; }
+
+            .snippet.active {
+                background-color: #fff;
+                border-left-width: 15px;
+            }
+
+        /*  Post template
+            ========================================================================== */
+            .details { margin-top: 25px; }
+
+            /*  Highlight
+                ========================================================================== */
+                .highlight {
+                    background-color: #f8f8f8;
+                    border: solid 1px #ddd;
+                    padding: 5px 20px;
+                    font-size: 14px;
+                }
+
+    }
+
+
+    /*
+     * CSS for devices with resolution bigger than breakpoint
+     */
+
+    @media only screen and (min-width: 768px) {
+
+    }

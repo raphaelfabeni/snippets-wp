@@ -1,0 +1,122 @@
+/*  ==========================================================================
+    Inputs
+    ========================================================================== */
+
+    /*  Default inputs, selects and textareas
+        ========================================================================== */
+        input[type="text"],
+        input[type="password"],
+        input[type="search"],
+        input[type="tel"],
+        input[type="url"],
+        input[type="date"],
+        input[type="datetime"],
+        input[type="datetime-local"],
+        input[type="month"],
+        input[type="week"],
+        .input,
+        select,
+        .select,
+        textarea,
+        .textarea {
+            width: 100%;
+            padding: 5px 10px;
+            border: solid 3px darken($primary-color, 5%);
+            color: #666;
+            margin-bottom: 15px;
+            @include transition(all .25s ease);
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="search"]:focus,
+        input[type="tel"]:focus,
+        input[type="url"]:focus,
+        input[type="date"]:focus,
+        input[type="datetime"]:focus,
+        input[type="datetime-local"]:focus,
+        input[type="month"]:focus,
+        input[type="week"]:focus,
+        .input:focus,
+        select:focus,
+        .select:focus,
+        textarea:focus,
+        .textarea:focus {
+            border-color: $secondary-color;
+        }
+
+    /*  Textarea
+        ========================================================================== */
+        .textarea { resize: vertical; }
+
+    /*  Input radio and checkbox
+        ========================================================================== */
+        .radio,
+        .checkbox {
+            padding-left: 15px;
+            display: block;
+            color: #666;
+        }
+
+        .radio input[type="radio"],
+        .checkbox input[type="checkbox"] {
+            float: left;
+            position: relative;
+            left: -15px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            line-height: normal;
+            margin: 4px 0 0;
+        }
+
+    /*  Placeholder
+        ========================================================================== */
+        input::-webkit-input-placeholder,
+        textarea::-webkit-input-placeholder {
+           color: #bbb;
+           font-style: italic;
+           opacity: 1;
+           font-size: 14px;
+        }
+
+        input:-moz-placeholder,
+        textarea:-moz-placeholder {
+           color: #bbb;
+           font-style: italic;
+           opacity: 1;
+           font-size: 14px;
+        }
+
+        input::-moz-placeholder,
+        textarea::-moz-placeholder {
+           color: #bbb;
+           font-style: italic;
+           opacity: 1;
+           font-size: 14px;
+        }
+
+        input:-ms-input-placeholder,
+        textarea:-ms-input-placeholder {
+           color: #bbb;
+           font-style: italic;
+           opacity: 1;
+           font-size: 14px;
+        }
+
+/*  ==========================================================================
+    Suggestions
+    ========================================================================== */
+    .autocomplete-suggestion {
+        background-color: #444;
+        color: #fff;
+        padding: 5px 10px;
+        width: 101%;
+        @include transition(all .25s ease);
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    .autocomplete-suggestion:hover,
+    .autocomplete-suggestion.autocomplete-selected { background-color: $primary-color; }

@@ -1,0 +1,36 @@
+<!doctype html>
+<!--[if IE 7]>    <html class="no-js ie7" lang="pt-br">     <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="pt-br">     <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="pt-br">     <![endif]-->
+<head>
+    <meta charset="utf-8">
+        <title>{{ page.title }}</title>
+        <meta name="viewport" content="width=device-width">
+
+        {% include meta.html %}
+        {% include estilos.html %}
+
+</head>
+<body>
+    <!-- Github label -->
+    <a href="https://github.com/raphaelfabeni/snippets-wp/fork" class="label-github">
+        <img alt="Fork me on GitHub" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" style="position: absolute; top: 0; right: 0; border: 0;">
+    </a>
+    <!-- Header -->
+    {% include header.html %}
+    <!-- Search -->
+    <div class="search">
+        <input type="text" name="titles" id="autocomplete" class="input" placeholder="Are you lost? Search here...">
+    </div>
+    <!-- Main -->
+    <div class="container">
+        <main role="main" class="main">
+            {{ content }}
+        </main>
+    </div>
+    <!-- Footer -->
+    {% include footer.html %}
+    <!-- Scripts -->
+    <script src="{{ site.baseurl }}/build/js/all.min.js"></script>
+</body>
+</html>

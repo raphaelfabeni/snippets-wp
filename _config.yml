@@ -1,0 +1,14 @@
+name: Snippets WP
+markdown: redcarpet
+baseurl: 'snippets-wp'
+pygments: true
+permalink: :title.html
+exclude: [
+	'node_modules',
+	'Gruntfile.js',
+	'package.json',
+	'.bowerrc',
+	'bower.json',
+	'.editorconfig',
+	'.gitignore'
+	]

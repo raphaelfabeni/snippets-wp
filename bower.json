@@ -1,0 +1,16 @@
+{
+  "name": "snippets-wp",
+  "version": "1.0.0",
+  "homepage": "raphaelfabeni.github.io/snippets-wp",
+  "ignore": [
+    "**/.*",
+    "node_modules"
+  ],
+  "dependencies": {
+    "jquery": "~1.9.1",
+    "modernizr": "~2.7.1"
+  },
+  "devDependencies": {
+    "devbridge-autocomplete": "~1.2.9"
+  }
+}

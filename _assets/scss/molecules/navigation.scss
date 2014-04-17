@@ -1,0 +1,43 @@
+/*  ==========================================================================
+    Navigation
+    ========================================================================== */
+
+    @media only screen {
+
+        /*  Header
+            ========================================================================== */
+            .header {
+                padding-top: 20px;
+                margin-bottom: 30px;
+            }
+
+        /*  Footer
+            ========================================================================== */
+            .footer {
+                border-top: solid 3px #fff;
+                margin-top: 40px;
+                padding-top: 30px;
+                padding-bottom: 30px;
+                background-color: darken($primary-color, 10%);
+            }
+
+            .footer {
+                text-align: center;
+                color: #fff;
+            }
+
+    }
+
+    /*
+     * CSS for devices with resolution bigger than breakpoint
+     */
+
+    @media only screen and (min-width: $breakpoint) {
+
+        /*  Header
+            ========================================================================== */
+
+        /*  Footer
+            ========================================================================== */
+
+   }
