@@ -8,7 +8,7 @@ A simple collection of wordpress snippets for your project.
 It was developed with [Jekyll](http://jekyllrb.com/).
 
 * Clone the project `https://github.com/raphaelfabeni/snippets-wp.git`
-* Go to folder that you cloned the project
+* Go to folder
 * Start the jekyll `jekyll serve --watch --baseurl ''`
 * Create a post inside the folder *_posts*
 
@@ -23,8 +23,9 @@ It was developed with [Jekyll](http://jekyllrb.com/).
   * file: It's where your snippet must be inserted. Most will be `functions.php`
 * To insert the code snippet, type in the following tag: `{% highlight php startinline %}`
 
-A simple example:
+A simple example of a post:
 
+```php
 ---
 layout: post
 title:  "This is the title of the post!"
@@ -33,7 +34,8 @@ description: "Simple description of the post that can explain it easily."
 file: 'functions.php'
 ---
 
-```php
+If you need insert more details about the snippet, write here.
+
 {% highlight php startinline %}
 // Code snippet
 {% endhighlight %}
