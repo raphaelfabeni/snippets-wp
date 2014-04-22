@@ -48,5 +48,6 @@ If you need insert more details about the snippet, write here.
 
 ## Creating a post
 
+![Creating a post](build/img/creating-post.gif "Creating a post")
 
 
