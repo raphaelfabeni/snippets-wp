@@ -9,8 +9,13 @@ It was developed with [Jekyll](http://jekyllrb.com/).
 
 * Clone the project `https://github.com/raphaelfabeni/snippets-wp.git`
 * Go to folder
-* Start the jekyll `jekyll serve --watch --baseurl ''`
+* [Start the jekyll](#starting-the-jekyll) `jekyll serve --watch --baseurl ''`
+* Access: `http://localhost:4000`
 * Create a post inside the folder *_posts*
+
+## Starting the Jekyll
+
+![Starting Jekyll](build/img/starting-jekyll.gif "Starting Jekyll")
 
 ## Post rules
 
