@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Only one jQuery!"
+title:  "Only one jQuery"
 date:   2014-04-16 15:14
 description: "Add only one jQuery script on page at footer."
 file: 'functions.php'
