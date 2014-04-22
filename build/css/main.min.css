@@ -1415,7 +1415,6 @@ dl {
       ========================================================================== */
   body {
     background-color: #004059;
-    background-image: repeating-linear-gradient(45deg, transparent, transparent 25px, #002e3f 25px, #002e3f 50px);
   }
 
   .main {
