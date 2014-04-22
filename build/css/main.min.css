@@ -736,52 +736,163 @@ a:hover {
 /*  Default
     ========================================================================== */
 .btn {
-  margin: 0;
-  padding: 0 12px;
-  height: 28px;
-  vertical-align: baseline;
+  position: relative;
   display: inline-block;
-  line-height: 28px;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 5px 15px;
   font-size: 11px;
-  font-weight: bold;
-  color: #555555;
-  text-decoration: none;
+  -webkit-transition: background 0.25s ease;
+  -moz-transition: background 0.25s ease;
+  -o-transition: background 0.25s ease;
+  -ms-transition: background 0.25s ease;
+  transition: background 0.25s ease;
   text-shadow: 0 1px white;
-  background: #dfdfdf;
-  border-width: 1px 1px 0;
-  border-style: solid;
-  border-color: #cecece #bababa #a8a8a8;
-  border-radius: 3px 3px 2px 2px;
-  outline: 0;
-  background-color: #dfdfdf;
-  -webkit-transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
-  -moz-transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
-  -o-transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
-  -ms-transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
-  transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
-  -webkit-box-shadow: inset 0 1px #fdfdfd, inset 0 0 0 1px #eaeaea, 0 1px #a8a8a8, 0 3px #bbbbbb, 0 4px #a8a8a8, 0 5px 2px rgba(0, 0, 0, 0.25);
-  box-shadow: inset 0 1px #fdfdfd, inset 0 0 0 1px #eaeaea, 0 1px #a8a8a8, 0 3px #bbbbbb, 0 4px #a8a8a8, 0 5px 2px rgba(0, 0, 0, 0.25);
 }
 
 .btn:hover,
-.btn:focus,
-.btn:active {
+.btn:focus {
   text-decoration: none;
-  background-color: #d7d7d7;
-  border-top-color: #c9c9c9;
+}
+
+.btn:after,
+.btn:before {
+  position: absolute;
+  content: '';
+  z-index: 1;
+}
+
+.btn:after {
+  top: -3px;
+  right: -3px;
+  border-top: solid 2px transparent;
+  border-right: solid 2px transparent;
+  border-bottom: solid 2px #aaa;
+}
+
+.btn:before {
+  bottom: -5px;
+  left: -1px;
+  border-bottom: solid 2px transparent;
+  border-left: solid 2px transparent;
+  border-top: solid 2px #aaa;
 }
 
 .btn:active {
-  padding: 1px 13px 0;
-  border-width: 0;
-  border-radius: 3px;
-  -webkit-transform: translateY(5px);
-  -moz-transform: translateY(5px);
-  -o-transform: translateY(5px);
-  -ms-transform: translateY(5px);
-  transform: translateY(5px);
-  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(0, 0, 0, 0.4), 0 1px white;
-  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(0, 0, 0, 0.4), 0 1px white;
+  -webkit-transform: translate(2px, 2px);
+  -moz-transform: translate(2px, 2px);
+  -o-transform: translate(2px, 2px);
+  -ms-transform: translate(2px, 2px);
+  transform: translate(2px, 2px);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.btn:active:after,
+.btn:active:before {
+  display: none;
+}
+
+/*  Colors
+    ========================================================================== */
+/*  Default
+    ========================================================================== */
+.btn {
+  background-color: #fff;
+  color: #555;
+  border-color: #aaa;
+  -webkit-box-shadow: 2px 2px 0 0 #aaaaaa;
+  box-shadow: 2px 2px 0 0 #aaaaaa;
+}
+
+.btn:after {
+  border-bottom-color: #ccc;
+}
+
+.btn:before {
+  border-top-color: #ccc;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #f5f5f5;
+}
+
+/*  Twitter
+    ========================================================================== */
+.btn-twitter {
+  background-color: #2ca9e1;
+  text-shadow: 0px 1px #187ca9;
+  color: #fff;
+  border-color: #187ca9;
+  -webkit-box-shadow: 2px 2px 0 0 #187ca9;
+  box-shadow: 2px 2px 0 0 #187ca9;
+}
+
+.btn-twitter:after {
+  border-bottom-color: #187ca9;
+}
+
+.btn-twitter:before {
+  border-top-color: #187ca9;
+}
+
+.btn-twitter:hover,
+.btn-twitter:focus {
+  background-color: #1e9dd5;
+}
+
+/*  Facebook
+    ========================================================================== */
+.btn-facebook {
+  background-color: #3b5997;
+  text-shadow: 0px 1px #263960;
+  color: #fff;
+  border-color: #263960;
+  -webkit-box-shadow: 2px 2px 0 0 #263960;
+  box-shadow: 2px 2px 0 0 #263960;
+}
+
+.btn-facebook:after {
+  border-bottom-color: #263960;
+}
+
+.btn-facebook:before {
+  border-top-color: #263960;
+}
+
+.btn-facebook:hover,
+.btn-facebook:focus {
+  background-color: #344e85;
+}
+
+/*  Github
+    ========================================================================== */
+.btn-github {
+  background-color: #555555;
+  text-shadow: 0px 1px #2f2f2f;
+  color: #fff;
+  border-color: #2f2f2f;
+  -webkit-box-shadow: 2px 2px 0 0 #2f2f2f;
+  box-shadow: 2px 2px 0 0 #2f2f2f;
+}
+
+.btn-github:after {
+  border-bottom-color: #2f2f2f;
+}
+
+.btn-github:before {
+  border-top-color: #2f2f2f;
+}
+
+.btn-github:hover,
+.btn-github:focus {
+  background-color: #484848;
 }
 
 /*  ==========================================================================
@@ -937,7 +1048,20 @@ dl {
       ========================================================================== */
   .header {
     padding-top: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+  }
+
+  .social {
+    margin: 15px auto 0;
+    padding: 10px 0;
+    text-align: center;
+    background-color: #fff;
+    width: 100%;
+  }
+
+  .social .btn {
+    margin: 0 5px;
+    font-weight: bold;
   }
 
   /*  Footer
@@ -961,6 +1085,10 @@ dl {
 @media only screen and (min-width: 768px) {
   /*  Header
       ========================================================================== */
+  .social {
+    max-width: 290px;
+  }
+
   /*  Footer
       ========================================================================== */
 }
@@ -1287,6 +1415,7 @@ dl {
       ========================================================================== */
   body {
     background-color: #004059;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 25px, #002e3f 25px, #002e3f 50px);
   }
 
   .main {

@@ -4,49 +4,124 @@
 
     /*  Default
         ========================================================================== */
-        .btn {
-            margin: 0;
-            padding: 0 12px;
-            height: 28px;
-            vertical-align: baseline;
-            display: inline-block;
-            line-height: 28px;
-            font-size: 11px;
-            font-weight: bold;
-            color: #555555;
-            text-decoration: none;
-            text-shadow: 0 1px white;
-            background: #dfdfdf;
-            border-width: 1px 1px 0;
-            border-style: solid;
-            border-color: #cecece #bababa #a8a8a8;
-            border-radius: 3px 3px 2px 2px;
-            outline: 0;
-            background-color: #dfdfdf;
-            @include transition(background-color .25s ease, transform .15s ease, box-shadow .25s ease);
-            @include box-shadow(inset 0 1px #fdfdfd,
-                          inset 0 0 0 1px #eaeaea,
-                          0 1px #a8a8a8,
-                          0 3px #bbb,
-                          0 4px #a8a8a8,
-                          0 5px 2px rgba(black, .25));
+	    .btn {
+	        position: relative;
+	        display: inline-block;
+	        margin: 0;
+	        text-align: center;
+	        text-transform: uppercase;
+	        vertical-align: middle;
+	        cursor: pointer;
+	        border: 1px solid transparent;
+	        white-space: nowrap;
+	        padding: 5px 15px;
+	        font-size: 11px;
+	        @include transition( background .25s ease );
+	        text-shadow: 0 1px white;
+	    }
+
+	    .btn:hover,
+	    .btn:focus { text-decoration: none; }
+
+	    .btn:after,
+	    .btn:before {
+	        position: absolute;
+	        content: '';
+	        z-index: 1;
+	    }
+
+	    .btn:after {
+	        top: -3px;
+	        right: -3px;
+	        border-top: solid 2px transparent;
+	        border-right: solid 2px transparent;
+	        border-bottom: solid 2px #aaa;
+	    }
+
+	    .btn:before {
+	        bottom: -5px;
+	        left: -1px;
+	        border-bottom: solid 2px transparent;
+	        border-left: solid 2px transparent;
+	        border-top: solid 2px #aaa;
+	    }
+
+    	.btn:active {
+            @include transform(translate(2px, 2px));
+            @include box-shadow(none);
         }
 
-        .btn:hover,
-        .btn:focus,
-        .btn:active {
-            text-decoration: none;
-            background-color: darken(#dfdfdf, 3%);
-            border-top-color: #c9c9c9;
-        }
+        .btn:active:after,
+        .btn:active:before { display: none; }
 
-        .btn:active {
-            padding: 1px 13px 0;
-            border-width: 0;
-            border-radius: 3px;
-            @include transform(translateY(5px));
-            @include box-shadow(
-                inset 0 0 3px rgba(black, .3),
-                inset 0 1px 1px rgba(black, .4),
-                0 1px white);
-        }
+    /*  Colors
+        ========================================================================== */
+
+        /*  Default
+            ========================================================================== */
+            .btn {
+                background-color: #fff;
+                color: #555;
+                border-color: #aaa;
+                @include box-shadow(2px 2px 0 0 #aaa);
+            }
+
+            .btn:after { border-bottom-color: #ccc; }
+            .btn:before { border-top-color: #ccc; }
+
+            .btn:hover,
+            .btn:focus { background-color: #f5f5f5; }
+
+        /*  Twitter
+            ========================================================================== */
+            $twitter_color: #2CA9E1;
+            $twitter_shadow: darken($twitter_color, 15%);
+            .btn-twitter {
+                background-color: $twitter_color;
+                text-shadow: 0px 1px $twitter_shadow;
+                color: #fff;
+                border-color: $twitter_shadow;
+                @include box-shadow(2px 2px 0 0 $twitter_shadow);
+            }
+
+            .btn-twitter:after { border-bottom-color: $twitter_shadow; }
+            .btn-twitter:before { border-top-color: $twitter_shadow; }
+
+            .btn-twitter:hover,
+            .btn-twitter:focus { background-color: darken($twitter_color, 5%); }
+
+        /*  Facebook
+            ========================================================================== */
+            $facebook_color: #3B5997;
+            $facebook_shadow: darken($facebook_color, 15%);
+            .btn-facebook {
+                background-color: $facebook_color;
+                text-shadow: 0px 1px $facebook_shadow;
+                color: #fff;
+                border-color: $facebook_shadow;
+                @include box-shadow(2px 2px 0 0 $facebook_shadow);
+            }
+
+            .btn-facebook:after { border-bottom-color: $facebook_shadow; }
+            .btn-facebook:before { border-top-color: $facebook_shadow; }
+
+            .btn-facebook:hover,
+            .btn-facebook:focus { background-color: darken($facebook_color, 5%); }
+
+        /*  Github
+            ========================================================================== */
+            $github_color: #555;
+            $github_shadow: darken($github_color, 15%);
+            .btn-github {
+                background-color: $github_color;
+                text-shadow: 0px 1px $github_shadow;
+                color: #fff;
+                border-color: $github_shadow;
+                @include box-shadow(2px 2px 0 0 $github_shadow);
+            }
+
+            .btn-github:after { border-bottom-color: $github_shadow; }
+            .btn-github:before { border-top-color: $github_shadow; }
+
+            .btn-github:hover,
+            .btn-github:focus { background-color: darken($github_color, 5%); }

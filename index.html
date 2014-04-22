@@ -7,11 +7,11 @@ title: Snippets WP
 {% for post in site.posts %}
 <div class="snippet">
 	<div class="snippet-title">
-        <h2 class="title"><a href="{{ site.baseurl }}/{{ post.url }}">{{ post.title }}</a></h2>
+        <h2 class="title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
     </div>
     <div class="snippet-desc">
         <p>{{ post.description }}</p>
     </div>
-    <a href="{{ site.baseurl }}/{{ post.url }}" class="btn">Go to snippet!</a>
+    <a href="{{ site.baseurl }}{{ post.url }}" class="btn">Go to snippet!</a>
 </div>
 {% endfor %}
