@@ -33,7 +33,7 @@ A simple example of a post:
 ```php
 ---
 layout: post
-title:  "This is the title of the post!"
+title:  "This is the title of the post"
 date:   2014-04-22 17:00
 description: "Simple description of the post that can explain it easily."
 file: 'functions.php'
