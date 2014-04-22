@@ -11,7 +11,7 @@ It was developed with [Jekyll](http://jekyllrb.com/).
 * Go to folder
 * [Start the jekyll](#starting-the-jekyll) `jekyll serve --watch --baseurl ''`
 * Access: `http://localhost:4000`
-* Create a post inside the folder *_posts*
+* [Create a post](#creating-a-post) inside the folder *_posts*
 
 ## Starting the Jekyll
 
