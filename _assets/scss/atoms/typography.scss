@@ -50,10 +50,10 @@
         .logo a:hover { text-decoration: none; }
 
         .logo-wp,
-        .logo-snippets {
-            @include transition(all .25s ease);
-            display: inline-block;
-        }
+        .logo-snippets { display: inline-block; }
+
+        .logo-wp { @include transition(all .5s ease); }
+        .logo-snippets { @include transition(all .25s ease); }
 
         .logo-wp {
             color: #01F0FF;

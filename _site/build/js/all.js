@@ -9625,6 +9625,7 @@ c=d(this.suggestionsContainer).scrollTop(),e=c+this.options.maxHeight-25,b<c?d(t
 a)},getValue:function(a){var b=this.options.delimiter,c;if(!b)return a;c=this.currentValue;b=c.split(b);return 1===b.length?a:c.substr(0,c.length-b[b.length-1].length)+a},dispose:function(){this.el.off(".autocomplete").removeData("autocomplete");this.disableKillerFn();d(window).off("resize.autocomplete",this.fixPositionCapture);d(this.suggestionsContainer).remove()}};d.fn.autocomplete=function(a,b){return 0===arguments.length?this.first().data("autocomplete"):this.each(function(){var c=d(this),e=
 c.data("autocomplete");if("string"===typeof a){if(e&&"function"===typeof e[a])e[a](b)}else e&&e.dispose&&e.dispose(),e=new g(this,a),c.data("autocomplete",e)})}});
 // Move page
+
 function movePage(step, distance) {
     $('html, body').animate({
         scrollTop: ( $(step).offset().top ) - distance
@@ -9632,6 +9633,7 @@ function movePage(step, distance) {
 }
 
 // Get the title by class
+
 function getTitles(classTitle) {
     var titlesArray = [],
     allTitles       = document.getElementsByClassName(classTitle);
@@ -9662,12 +9664,14 @@ jQuery(document).ready(function($) {
 
     var titles = getTitles('title');
 
+    // Autocomplete input
+
     $('#autocomplete').autocomplete({
         lookup: titles,
         onSelect: function (suggestion) {
             var selected = $('#' + suggestion.data),
             snippet      = selected.parents('.snippet');
-            movePage(selected, 60);
+            movePage(selected, 50);
             $('.snippet').removeClass('active');
             snippet.addClass('active');
         }

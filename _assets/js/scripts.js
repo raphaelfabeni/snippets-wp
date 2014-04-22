@@ -1,4 +1,5 @@
 // Move page
+
 function movePage(step, distance) {
     $('html, body').animate({
         scrollTop: ( $(step).offset().top ) - distance
@@ -6,6 +7,7 @@ function movePage(step, distance) {
 }
 
 // Get the title by class
+
 function getTitles(classTitle) {
     var titlesArray = [],
     allTitles       = document.getElementsByClassName(classTitle);
@@ -36,12 +38,14 @@ jQuery(document).ready(function($) {
 
     var titles = getTitles('title');
 
+    // Autocomplete input
+
     $('#autocomplete').autocomplete({
         lookup: titles,
         onSelect: function (suggestion) {
             var selected = $('#' + suggestion.data),
             snippet      = selected.parents('.snippet');
-            movePage(selected, 60);
+            movePage(selected, 50);
             $('.snippet').removeClass('active');
             snippet.addClass('active');
         }

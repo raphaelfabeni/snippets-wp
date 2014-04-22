@@ -1,6 +1,6 @@
 name: Snippets WP
 markdown: redcarpet
-baseurl: 'snippets-wp'
+baseurl: '/snippets-wp'
 pygments: true
 permalink: :title.html
 exclude: [

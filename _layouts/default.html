@@ -18,10 +18,14 @@
     </a>
     <!-- Header -->
     {% include header.html %}
+
+    {% if page.type == "home" %}
     <!-- Search -->
     <div class="search">
         <input type="text" name="titles" id="autocomplete" class="input" placeholder="Are you lost? Search here...">
     </div>
+
+    {% endif %}
     <!-- Main -->
     <div class="container">
         <main role="main" class="main">

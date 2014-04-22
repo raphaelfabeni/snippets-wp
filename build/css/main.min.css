@@ -651,12 +651,23 @@ h6 {
 
 .logo-wp,
 .logo-snippets {
+  display: inline-block;
+}
+
+.logo-wp {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.logo-snippets {
   -webkit-transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
   -o-transition: all 0.25s ease;
   -ms-transition: all 0.25s ease;
   transition: all 0.25s ease;
-  display: inline-block;
 }
 
 .logo-wp {
