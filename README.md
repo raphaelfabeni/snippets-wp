@@ -19,16 +19,16 @@ It was developed with [Jekyll](http://jekyllrb.com/).
 
 ## Post rules
 
-* The filename must follow the structure: yyyy-mm-dd-title-of-the-post.md
-* There are five parameters in post template:
-  * layout : It's about the layout template of the post (you won't change this parameter)
+* The filename must follow the structure: `yyyy-mm-dd-title-of-the-post.md`
+* There are five parameters (YAML) in the post template:
+  * layout : It's about the layout template of the post (you won't change this parameter).
   * title: The title of the post.
   * date: Publication date of the post
   * description: A short description about the post
   * file: It's where your snippet must be inserted. Most will be `functions.php`
 * To insert the code snippet, type in the following tag: `{% highlight php startinline %}`
 
-A simple example of a post:
+Confused? A simple example of a post:
 
 ```php
 ---
@@ -49,5 +49,3 @@ If you need insert more details about the snippet, write here.
 ## Creating a post
 
 ![Creating a post](build/img/creating-post.gif "Creating a post")
-
-
