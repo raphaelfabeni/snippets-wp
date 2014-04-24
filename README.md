@@ -1,53 +1,53 @@
 Snippets WP
 ===========
 
-A simple collection of wordpress snippets for your project.
+Uma coletânea de snippets para WordPress pra você utilizar no seu projeto!
 
-[View the project](http://raphaelfabeni.github.io/snippets-wp/)
+[Ver projeto](http://raphaelfabeni.github.io/snippets-wp/)
 
-## How it works
+## Como funciona
 
-It was developed with [Jekyll](http://jekyllrb.com/).
+O projeto foi feito em [Jekyll](http://jekyllrb.com/).
 
-* Clone the project `https://github.com/raphaelfabeni/snippets-wp.git`
-* Go to folder
-* [Start the jekyll](#starting-the-jekyll) `jekyll serve --watch --baseurl ''`
-* Access: `http://localhost:4000`
-* [Create a post](#creating-a-post) inside the folder *_posts*
+* Clone o projeto `https://github.com/raphaelfabeni/snippets-wp.git`
+* Vá para a pasta que onde você clonou.
+* [Inicie o jekyll](#iniciando-o-jekyll) `jekyll serve --watch --baseurl ''`
+* Accesse: `http://localhost:4000`
+* [Contribua com seu post](#criando-um-post) dentro da pasta *_posts*
 
-## Starting the Jekyll
+## Iniciando o Jekyll
 
-![Starting Jekyll](build/img/starting-jekyll.gif "Starting Jekyll")
+![Iniciando o Jekyll](build/img/starting-jekyll.gif "Iniciando o Jekyll")
 
-## Post rules
+## Criando posts
 
-* The filename must follow the structure: `yyyy-mm-dd-title-of-the-post.md`
-* There are five parameters (YAML) in the post template:
-  * layout : It's about the layout template of the post (you won't change this parameter).
-  * title: The title of the post.
-  * date: Publication date of the post
-  * description: A short description about the post
-  * file: It's where your snippet must be inserted. Most will be `functions.php`
-* To insert the code snippet, type in the following tag: `{% highlight php startinline %}`
+* O nome do arquivo do post deve seguir a seguinte estrutura: `aaaa-mm-dd-titulo-post.md`
+* No _template_ do post existem cinco parâmetros (YAML):
+  * layout : Relacionado ao template geral dos posts (Você não vai mexer aqui)
+  * title: O título do seu post.
+  * date: A data de publicação do seu post (aaaa-mm-dd hh-mm)
+  * description: Uma breve descrição do snippet.
+  * file: Local onde o snippet deve ser inserido. A maioria provavelmente será no arquivo `functions.php`
+* Na hora de digitar o seu snippet mágico, você deve colocá-lo dentro da tag: `{% highlight php startinline %}`
 
-Confused? A simple example of a post:
+Ficou confuso? Calma. Aqui um exemplo de como deve ser um post:
 
 ```php
 ---
 layout: post
-title:  "This is the title of the post"
+title:  "Título legal do post"
 date:   2014-04-22 17:00
-description: "Simple description of the post that can explain it easily."
+description: "Aqui vai uma descrição simples da funcionalidade do snippet."
 file: 'functions.php'
 ---
 
-If you need insert more details about the snippet, write here.
+Se precisar escrever ou detalhar algo a mais sobre o post/snippet insira aqui.
 
 {% highlight php startinline %}
-// Code snippet
+// Código do snippet
 {% endhighlight %}
 ```
 
-## Creating a post
+## Criando um post
 
-![Creating a post](build/img/creating-post.gif "Creating a post")
+![Criando um post](build/img/creating-post.gif "Criando um post")
