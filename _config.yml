@@ -3,6 +3,7 @@ markdown: redcarpet
 baseurl: '/snippets-wp'
 pygments: true
 permalink: :title.html
+encoding: UTF-8
 exclude: [
 	'node_modules',
 	'Gruntfile.js',

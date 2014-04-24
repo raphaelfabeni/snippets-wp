@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "Removing scripts and style of Contact Form 7"
+title:  "Removendo scripts e estilo do Contact Form 7"
 date:   2014-04-16 16:58
-description: "Add Contact Form 7 scripts and style only in pages needed."
+description: "Adiciona os arquivos de scripts e estilo do plugin Contact Form 7 apenas quando for necessário."
 file: 'functions.php'
 ---
 
 {% highlight php startinline %}
-// CF7 scripts and style only in pages needed
+// CF7 scripts e estilo apenas quando necessario
 function deregister_cf7_javascript() {
     if ( !is_page(page_id) ) {
     	wp_deregister_script( 'contact-form-7' );

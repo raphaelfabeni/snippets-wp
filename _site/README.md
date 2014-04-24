@@ -3,6 +3,8 @@ Snippets WP
 
 A simple collection of wordpress snippets for your project.
 
+[View the project](http://raphaelfabeni.github.io/snippets-wp/)
+
 ## How it works
 
 It was developed with [Jekyll](http://jekyllrb.com/).

@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Image sizes"
+title:  "Tamanho de corte das imagens (Image size)"
 date:   2014-04-16 17:12
-description: "Define a specific size for cutting images."
+description: "Define tamanhos específicos para os cortes das imagens."
 file: 'functions.php'
 ---
 

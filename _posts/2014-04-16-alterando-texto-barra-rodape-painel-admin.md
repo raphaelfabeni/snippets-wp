@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "Changing the text of Admin bar footer"
+title:  "Alterando o texto da barra do rodapé no painel admin"
 date:   2014-04-16 17:27
-description: "Change the text on the footer bar in Admin panel."
+description: "Altera o texto localizado no rodapé do painel admin."
 file: 'functions.php'
 ---
 
 {% highlight php startinline %}
-// Admin Footer text
+// Texto admin rodape
 function remove_footer_admin () {
 	echo "New footer text!";
 }

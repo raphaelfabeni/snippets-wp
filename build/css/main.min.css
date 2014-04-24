@@ -607,14 +607,12 @@ body:after {
   font-weight: 400;
   src: local("Cinzel-Regular"), url(http://themes.googleusercontent.com/static/fonts/cinzel/v2/mLL0ZqnXRx3m16FnBy9gcg.woff) format("woff");
 }
-
 @font-face {
   font-family: 'Cinzel';
   font-style: normal;
   font-weight: 700;
   src: local("Cinzel-Bold"), url(http://themes.googleusercontent.com/static/fonts/cinzel/v2/L74890HNVnUypqWjqGUt1T8E0i7KZn-EPnyo3HZu7kw.woff) format("woff");
 }
-
 body {
   -webkit-text-size-adjust: none;
   -ms-text-size-adjust: none;
@@ -1086,7 +1084,7 @@ dl {
   /*  Header
       ========================================================================== */
   .social {
-    max-width: 290px;
+    max-width: 355px;
   }
 
   /*  Footer
@@ -1539,8 +1537,7 @@ dl {
 
   @page {
     margin: 0.5cm;
-}
-
+  }
   p {
     orphans: 3;
     widows: 3;

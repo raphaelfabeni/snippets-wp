@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Adding excerpt on pages"
+title:  "Adicionando resumo nas páginas"
 date:   2014-04-23 17:51
-description: "Enables the use of excerpt on pages."
+description: "Habilita a utilização do campo resumo nas páginas."
 file: 'functions.php'
 ---
 

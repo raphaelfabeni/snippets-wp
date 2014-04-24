@@ -126,7 +126,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['watch', 'concat', 'uglify', 'jshint', 'sass', 'imagemin', 'svgmin', 'svg2png', 'copy'] );
+    grunt.registerTask('default', ['watch', 'concat', 'uglify', 'jshint', 'sass'] );
 
     // Watch task
     grunt.registerTask( 'w', [ 'watch' ] );

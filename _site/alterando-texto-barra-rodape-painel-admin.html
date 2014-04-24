@@ -4,13 +4,13 @@
 <!--[if IE 9]>    <html class="no-js ie9" lang="pt-br">     <![endif]-->
 <head>
     <meta charset="utf-8">
-        <title>Inserting the featured image for news Feed</title>
+        <title>Alterando o texto da barra do rodapé no painel admin</title>
         <meta name="viewport" content="width=device-width">
 
         <meta name="keywords" content="wp, wordpress, shortcode, snippets, code, web, example" >
 <meta name="author" content="Raphael Fabeni">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="A simple collection of wordpress snippets for your project.">
+<meta name="description" content="Uma coletânea de snippets para WordPress pra você utilizar no seu projeto!">
 <meta property="fb:app_id" content="543456155772283">
 <meta property="fb:admins" content="100000808831074">
 <meta property="og:type" content="website">
@@ -19,7 +19,7 @@
 <meta property="og:url" content="http://raphaelfabeni.github.io/snippets-wp/">
 <meta property="og:image" content="http://raphaelfabeni.github.io/snippets-wp/build/img/fb-share.png">
 
-<meta property="og:description" content="A simple collection of wordpress snippets for your project.">
+<meta property="og:description" content="Uma coletânea de snippets para WordPress pra você utilizar no seu projeto!">
 
 <link rel="icon" href="http://www.raphaelfabeni.com.br/favicon.ico">
 
@@ -55,13 +55,13 @@ ga('send', 'pageview');
 	</h1>
 	<div class="social">
 		<!-- Github button -->
-		<a class="btn btn-github" href="https://github.com/raphaelfabeni/snippets-wp/" target="_blank">Repository</a>
+		<a class="btn btn-github" href="https://github.com/raphaelfabeni/snippets-wp/" target="_blank">Repositório</a>
 
 		<!-- Twitter button -->
-		<a class="btn btn-twitter" href="http://twitter.com/share?url=http://raphaelfabeni.github.io/snippets-wp&amp;text=Snippets WP - A simple collection of wordpress snippets for your project." target="_blank">Tweet</a>
+		<a class="btn btn-twitter" href="http://twitter.com/share?url=http://raphaelfabeni.github.io/snippets-wp&amp;text=Snippets WP - Uma coletânea de snippets para WordPress pra você utilizar no seu projeto!" target="_blank">Tweetar</a>
 
 		<!-- Facebook button -->
-		<a class="btn btn-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://raphaelfabeni.github.io/snippets-wp/" target="_blank">Share</a>
+		<a class="btn btn-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://raphaelfabeni.github.io/snippets-wp/" target="_blank">Compartilhar</a>
 	</div>
 </header>
 
@@ -70,20 +70,19 @@ ga('send', 'pageview');
     <!-- Main -->
     <div class="container">
         <main role="main" class="main">
-            <a href="/" class="btn">Back</a>
+            <a href="/" class="btn">Voltar</a>
 <div class="details">
-	<h2 class="title-post">Inserting the featured image for news Feed</h2>
-	<p><strong>Description:</strong> Enables featured image of the post for news feed</p>
-	<p><strong>Where?</strong> <code>functions.php</code></p>
+	<h2 class="title-post">Alterando o texto da barra do rodapé no painel admin</h2>
+	<p><strong>Descrição do snippet:</strong> Altera o texto localizado no rodapé do painel admin.</p>
+	<p><strong>Onde eu coloco?</strong> <code>functions.php</code></p>
 </div>
 
 <div class="post">
-<div class="highlight"><pre><code class="php"><span class="k">function</span> <span class="nf">rss_post_thumbnail</span><span class="p">(</span><span class="nv">$content</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">global</span> <span class="nv">$post</span><span class="p">;</span>
-    <span class="k">if</span><span class="p">(</span> <span class="nx">has_post_thumbnail</span><span class="p">(</span><span class="nv">$post</span><span class="o">-&gt;</span><span class="na">ID</span><span class="p">)</span> <span class="p">)</span>
-        <span class="nv">$content</span> <span class="o">=</span> <span class="s1">&#39;&lt;p&gt;&#39;</span> <span class="o">.</span> <span class="nx">get_the_post_thumbnail</span><span class="p">(</span><span class="nv">$post</span><span class="o">-&gt;</span><span class="na">ID</span><span class="p">,</span> <span class="s1">&#39;thumbnail&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39;&lt;/p&gt;&#39;</span> <span class="o">.</span> <span class="nv">$content</span><span class="p">;</span>
-        <span class="k">return</span> <span class="nv">$content</span><span class="p">;</span>
+<div class="highlight"><pre><code class="php"><span class="c1">// Texto admin rodape</span>
+<span class="k">function</span> <span class="nf">remove_footer_admin</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s2">&quot;New footer text!&quot;</span><span class="p">;</span>
 <span class="p">}</span>
+<span class="nx">add_filter</span><span class="p">(</span><span class="s1">&#39;admin_footer_text&#39;</span><span class="p">,</span> <span class="s1">&#39;remove_footer_admin&#39;</span><span class="p">);</span>
 </code></pre></div>
 
 </div>

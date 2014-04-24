@@ -1,15 +1,15 @@
 ---
 layout: post
-title:  "Only one jQuery"
+title:  "Apenas um jQuery"
 date:   2014-04-16 15:14
-description: "Add only one jQuery script on page at footer."
+description: "Adiciona apenas um arquivo do jQuery na página (no rodapé)."
 file: 'functions.php'
 ---
 
-You need the tag <code><?php wp_footer(); ?></code> at footer.
+Você precisa inserir a tag <code><?php wp_footer(); ?></code> no rodapé.
 
 {% highlight php startinline %}
-// Add jQuery script
+// Adiciona scripts jQuery
 function my_scripts_method() {
 	wp_deregister_script( 'jquery' );
 	wp_enqueue_script('jquery','http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js','','',true);

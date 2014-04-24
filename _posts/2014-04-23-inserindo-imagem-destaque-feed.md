@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Inserting the featured image for news Feed"
+title:  "Inserindo imagem de destaque para o Feed"
 date:   2014-04-23 17:51
-description: "Enables featured image of the post for news feed"
+description: "Habilita imagem de destaque do post para o Feed."
 file: 'functions.php'
 ---
 

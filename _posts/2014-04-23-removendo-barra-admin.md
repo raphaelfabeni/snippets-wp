@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Removing the Admin bar"
+title:  "Removendo barra do admin"
 date:   2014-04-23 17:48
-description: "Remove the admin bar that appears in your site when you are logged."
+description: "Remove a barra de admin do WordPress quando você está logado no painel de controle."
 file: 'functions.php'
 ---
 
