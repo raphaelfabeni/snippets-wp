@@ -1,7 +1,11 @@
 Snippets WP
 ===========
 
-Uma coletânea de snippets para WordPress pra você utilizar no seu projeto!
+Uma coletânea de snippets para sites em WordPress!
+
+## O que é?
+
+Sabe quando você está desenvolvendo aquele site em WP e você precisa fazer algo que você já fez antes mas não lembra como faz? Ou se você acabou de criar uma funcionalidade bacana e quer guardar o _snippet_ para um projeto futuro? Aí que nasceu a idéia de ter um repositório que pudesse agrupar todos esses snippets. A princípio foi um projeto pessoal, mas se foi útil pra mim, pode ser para mais pessoas.
 
 [Ver projeto](http://raphaelfabeni.github.io/snippets-wp/)
 

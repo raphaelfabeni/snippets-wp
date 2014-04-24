@@ -67,6 +67,12 @@
             letter-spacing: -1px;
         }
 
+        .subtitle {
+            text-align: center;
+            text-shadow: 0px 1px darken($primary-color, 15%);
+            color: #fff;
+        }
+
         .title-post {
             font-size: 28px;
             line-height: 28px;
